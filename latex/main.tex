@@ -1,6 +1,6 @@
 % Template:     Template Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      1.2.3 (03/01/2020)
+% Versión:      2.0.1 (28/06/2020)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R.
@@ -12,46 +12,34 @@
 % Licencia MIT: [https://opensource.org/licenses/MIT]
 
 % CREACIÓN DEL DOCUMENTO
-\documentclass[letterpaper,11pt]{article} % Articulo tamaño carta, 11pt
+\documentclass[letterpaper,oneside]{article}
 
 % INFORMACIÓN DEL DOCUMENTO
-\def\titulodelreporte {Marco de Trabajo y Asignación de Autobuses}
-\def\temaatratar {Semana 6-7}
+\def\titulodelreporte {Título del reporte}
+\def\temaatratar {Tema a tratar}
 \def\fechadelreporte {\today}
 
-\def\autordeldocumento {Francisco Muñoz G.}
-\def\nombredelcurso {}
-\def\codigodelcurso {Francisco Muñoz G.}
+\def\autordeldocumento {Nombre del autor}
+\def\nombredelcurso {Curso}
+\def\codigodelcurso {CO-1234}
 
-\def\nombreuniversidad {Proyecto Oferta}
-\def\nombrefacultad {}
-\def\departamentouniversidad {SARCAN Science}
+\def\nombreuniversidad {Universidad de Chile}
+\def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
+\def\departamentouniversidad {Departamento de la Universidad}
 \def\imagendepartamento {departamentos/fcfm}
 \def\localizacionuniversidad {Santiago, Chile}
 
-% CONFIGURACIONES
-\input{lib/config}
+% IMPORTACIÓN DEL TEMPLATE
+\input{template}
 
-% IMPORTACIÓN DE LIBRERÍAS
-\input{lib/env/imports}
-
-% IMPORTACIÓN DE FUNCIONES Y ENTORNOS
-\input{lib/cmd/all}
-
-% IMPORTACIÓN DE ESTILOS
-\input{lib/style/all}
-
-% CONFIGURACIÓN INICIAL DEL DOCUMENTO
-\input{lib/cfg/init}
-
-% INICIO DE LAS PÁGINAS
+% INICIO DE PÁGINAS
 \begin{document}
 	
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
-\input{lib/cfg/page}
+\templatePagecfg
 
 % CONFIGURACIONES FINALES
-\input{lib/cfg/final}
+\templateFinalcfg
 
 % ======================= INICIO DEL DOCUMENTO =======================
 
@@ -60,23 +48,11 @@
 
 % Resumen o Abstract
 \begin{abstract}
-	\input{capitulos/00Resumen.tex}
+	\lipsum[11]
 \end{abstract}
-\hspace{1.7cm}
+
 % Ejemplo, se puede borrar
-%\input{lib/etc/example}
-\begin{multicols}{2}[][1]
-    \section{Objetivos}
-    \input{capitulos/01Objetivos.tex}
-    \section{Metodología}
-    \input{capitulos/02Metodologia.tex}
-    \section{Desarrollo}
-    \input{capitulos/03Desarrollo.tex}
-    \section{Resultados}
-    \input{capitulos/04Resultados.tex}
-    \section{Objetivos Futuros}
-    \input{capitulos/05futuro.tex}
-\end{multicols}
+\input{example}
 
 % FIN DEL DOCUMENTO
 \end{document}
