@@ -1,0 +1,128 @@
+\section{Introducción}
+{
+% Debe mencionar las motivaciones de realizar este proyecto, definir sus objetivos, qué busca
+% resolver o demostrar y una explicación general del trabajo realizado.
+
+% Contexto de las noticias actualmente
+Hoy en día, gracias al internet, los cibernautas están siendo continuamente bombardeados de información y de noticias.
+
+% Importancia para resolver esto
+Sin embargo, no siempre se puede con certeza cuando una noticia es verdadera o falsa, y más aún si la persona quién
+está leyendo la noticia no tiene los conocimientos necesarios, o no ha desarrollado un pensamiento crítico para discernir 
+cuando una noticia es verdadera o falsa.
+
+% Objetivo
+Es por esto que el objetivo de este trabajo es el de desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base a sus características.
+
+Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máquinas, como lo es el Procesamiento de Lenguaje Natural, y Clasificación Binario.   
+
+
+Es por esto que en este trabajo se explorarán métodos que permitirán verificar cuando una noticia es verdadera o falsa, utilizando las
+herramientas de Aprendizaje de Máquinas. Es decir, \textbf{clasificaremos} una noticia como verdadera o falsa, en base a sus características.
+
+% Origen de los datos
+% Para esto, se obtendrán diversas noticias de US a través de 
+% \href{https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset}{kaggle}, etiquetadas por verdaderas o falsas. 
+
+}
+
+% \section{Marco Teórico}
+% {
+% % Una breve explicación sobre las bases teóricas del proyecto.
+
+% \lipsum[2]
+% }
+
+\section{Descripción de los Datos}
+{
+\subsection{Descripción del dataset}
+La base de datos se obtuvieron a partir de Kaggle, del \textit{dataset} llamado ``\href{https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset}{Fake and 
+real news dataset}''.
+
+Esta base de datos consiste en dos \textit{datasets}: el de noticias falsas (17.903 datos) y el de noticias verdaderas (20.826 datos). Ambos datasets 
+comparten las mismas columnas: \textit{title}, \textit{text}, \textit{subject} y \textit{date}. Estas corresponden al titular de
+la noticia, al contenido de la noticia, al tipo de noticia que es y la fecha de la noticia, respectivamente.
+
+Las columnas \textit{title} y \textit{text} son de tipo cadena; \textit{subject} es un tipo de dato categórico y \textit{date}
+es un tipo de dato temporal. 
+
+% \subsubsection{Descripción de las categorías de la columna \textit{subject}}
+En el \textit{dataset} de las noticias verdaderas, existen dos etiquetas para la columna \textit{subject}, las cuales son \textbf{politicsNews} y \textbf{worldnews}. La etiqueta \textbf{politicsNews} posee 11.272 datos y es para referirse a las noticias que tengan una connotación política, mientras que la etiqueta \textbf{worldnews} posee 10.145 datos y es para referirse a las noticias que ocurren fuera de EE.UU.
+
+Mientras que el \textit{dataset} de las noticias falsas, posee seis etiquetas:
+\textbf{News}, \textbf{politics}, \textbf{Government News}, \textbf{left-news}, \textbf{US news} y \textbf{Middle-east}. A continuación se dará una breve descripción de cada categoría:
+\begin{itemize}
+    \item La etiqueta de \textbf{News} posee 9.050 datos y corresponde a las noticias estándar,
+    \item La de \textbf{politics} posee 6.836 datos y corresponde a noticias de connotación política,
+    \item La de \textbf{Government News} posee 1.568 datos y corresponde a noticias sobre el gobierno,
+    \item La de \textbf{left-news} posee 4.456 datos y corresponde a noticias del espectro de la izquierda política,
+    \item La de \textbf{US News} posee 784 datos y corresponde a noticias sobre EE.UU., y finalmente
+    \item La de \textbf{Middle-east} posee 778 datos y corresponde a noticias del Oriente Medio.
+\end{itemize}
+
+El \textit{dataset} originalmente no posee valores nulos. Sin embargo, el \textit{dataset} de las noticias falsas posee 10 datos etiquetados como fecha, a pesar de que no lo sean.
+}
+
+\section{Tratamiento de los Datos}
+{
+Se crea una nueva columna en ambos \textit{datasets}, llamado \textit{true}, el cual determina si la noticia es verdadera o falsa. Creada la columna, se concatenan ambos \textit{datasets}. Además, se marcan los datos que no sean fechas de la columna \textit{date} por el tipo de dato llamado \textit{Not a Time}, y se eliminan los datos nulos que posea el \textit{dataset}.
+}
+
+\section{Análisis Exploratorio de los Datos}
+{
+\lipsum[1]
+}
+
+\section{Metodología}
+{
+\lipsum[1]
+}
+
+\section{Resultados}
+{
+\lipsum[1]
+}
+
+\section{Discusión y Conclusiones}
+{
+\lipsum[1]
+}
+
+\section{Futuras Mejoras}
+{
+\lipsum[1]
+}
+
+\section{Desarrollo}
+{
+% El procedimiento y los experimentos realizados, descripción de los datos, la metodología usada, las
+% configuraciones (parámetros) de los algoritmos usados, etc. Explicar las decisiones que tomaron y el porqué. Si
+% usaron un algoritmo para resolver el problema, explicar su elección y por qué no otro. No es necesario que sea
+% una explicación rigurosa, puede ser por la naturaleza del problema, de forma intuitiva o por aspectos prácticos
+\subsection{Descripción de los datos}
+{
+Los datos se obtuvieron de la Base de Datos \href{https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset}{Fake and 
+real news dataset}, de kaggle. 
+
+Este consiste en dos datasets: el de noticias falsas (17903 datos) y el de noticias verdaderas (20826 datos). Ambos datasets 
+comparten las mismas columnas: \textit{title}, \textit{text}, \textit{subject} y \textit{date}. Estas corresponden al titular de
+la noticia, al contenido de la noticia, al tipo de noticia que es y la fecha de la noticia, respectivamente.
+
+Las columnas \textit{title} y \textit{text} son de tipo cadena; \textit{subject} es un tipo de dato categórico y \textit{date}
+es un tipo de dato temporal. 
+}
+}
+
+\section{Resultados y Análisis}
+{
+% Mostrar, explicar y discutir los resultados obtenidos. El análisis incluye una interpretación superficial (funcionó/no funcionó), y también un análisis de si era o no lo esperado, por qué, y qué
+% se podría mejorar
+\lipsum[3]
+}
+
+\section{Conclusión}
+{
+% Las conclusiones que se obtienen del proyecto (No ponga conclusiones del estilo ”aprendí mucho”).
+% Incluya las dificultades que se encontraron y propuestas de trabajo a futuro.
+\lipsum[4]
+}
