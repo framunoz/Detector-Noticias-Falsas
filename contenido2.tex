@@ -4,21 +4,15 @@
 % resolver o demostrar y una explicación general del trabajo realizado.
 
 % Contexto de las noticias actualmente
-En la actualidad, los usuarios de internet, se encuentran constantemente bombardeados de información y noticias, de fuentes que parecen diversificarse igual de rápido que el internet mismo. 
+En la actualidad, los usuarios de internet, se encuentran constantemente bombardeados de información y noticias, de fuentes que parecen diversificarse día a día. 
 
 % Importancia para resolver esto
-Es por ello, que no siempre se puede identificar con certeza cuando una noticia es verdadera o falsa. Lo cual cobra importancia, ya que las noticias son la forma principal en que las personas pueden entender el contexto en que están viviendo y formar sus opiniones. Además de que las noticias falsas propagan desinformación y s
-
-, y más aún si la persona quién está leyendo la noticia no tiene los conocimientos necesarios, o no ha desarrollado un pensamiento crítico para discernir cuando una noticia es verdadera o falsa.
+Es por ello, que no siempre se puede identificar con certeza cuando una noticia es verdadera o falsa. Lo cual cobra importancia, ya que las noticias son la forma principal en que las personas pueden entender el contexto en que están viviendo y formar sus opiniones. Además de que las noticias falsas son una forma maliciosa de propagar desinformación para manejar la opinión pública en beneficio de sus creadores. 
 
 % Objetivo
-Es por esto que el objetivo de este trabajo es el de desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base a sus características.
+Es por esto que el objetivo de este trabajo es desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base al título y cuerpo de la noticia.
 
-Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máquinas, como lo es el Procesamiento de Lenguaje Natural, y Clasificación Binario.   
-
-
-Es por esto que en este trabajo se explorarán métodos que permitirán verificar cuando una noticia es verdadera o falsa, utilizando las
-herramientas de Aprendizaje de Máquinas. Es decir, \textbf{clasificaremos} una noticia como verdadera o falsa, en base a sus características.
+Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máquinas, como lo es Procesamiento de Lenguaje Natural y Clasificación Binaria. Es específico se usará vectorización, análisis léxico y lematización sintáctica para procesar el texto, y luego modelos de Naïve Bayes, Regresión Logística y Perceptrón para la clasificación. 
 
 % Origen de los datos
 % Para esto, se obtendrán diversas noticias de US a través de 
@@ -84,14 +78,14 @@ Finalmente, se empieza a codificar la información a través de un vector de car
 Una de las primeras preguntas que se puede realizar sobre
 \begin{figure}
 \centering
-\begin{subfigure}{.47\textwidth}
+\begin{subfigure}{\escala\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/wordcloud_titulares_falsas.pdf}
     \caption{Titulares de noticias falsas}
     \label{fig:tit-fake}
 \end{subfigure}%
 \newline
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{\escala\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/wordclouds_cuerpo_falsas.pdf}
     \caption{Cuerpo de noticias falsas}
@@ -101,29 +95,16 @@ Una de las primeras preguntas que se puede realizar sobre
 \label{fig:fake}
 \end{figure}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.47\textwidth]{imagenes/wordcloud_titulares_falsas.pdf}
-%     \caption{Titulares de noticias falsas}
-%     \label{fig:tit-fake}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.47\textwidth]{imagenes/wordclouds_cuerpo_falsas.pdf}
-%     \caption{Cuerpo de noticias falsas}
-%     \label{fig:text-fake}
-% \end{figure}
-
 \begin{figure}
 \centering
-\begin{subfigure}{.47\textwidth}
+\begin{subfigure}{\escala\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/wordcloud_titulares_verdaderas.pdf}
     \caption{Titulares de noticias verdaderas}
     \label{fig:tit-true}
 \end{subfigure}%
 \newline
-\begin{subfigure}{.5\textwidth}
+\begin{subfigure}{\escala\textwidth}
     \centering
     \includegraphics[width=\textwidth]{imagenes/wordclouds_cuerpo_verdaderas.pdf}
     \caption{Cuerpo de noticias verdaderas}
@@ -133,18 +114,13 @@ Una de las primeras preguntas que se puede realizar sobre
 \label{fig:fake}
 \end{figure}
 
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.47\textwidth]{imagenes/wordcloud_titulares_verdaderas.pdf}
-%     \caption{Titulares de noticias verdaderas}
-%     \label{fig:tit-true}
-% \end{figure}
-% \begin{figure}
-%     \centering
-%     \includegraphics[width=0.47\textwidth]{imagenes/wordclouds_cuerpo_verdaderas.pdf}
-%     \caption{Cuerpo de noticias verdaderas}
-%     \label{fig:text-true}
-% \end{figure}
+\begin{figure}
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
 }
 
 \section{Metodología}
