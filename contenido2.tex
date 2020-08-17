@@ -26,12 +26,16 @@ herramientas de Aprendizaje de Máquinas. Es decir, \textbf{clasificaremos} una 
 
 }
 
-% \section{Marco Teórico}
-% {
-% % Una breve explicación sobre las bases teóricas del proyecto.
+\section{Marco Teórico}
+{
+Este es un proyecto íntimamente ligado al procesamiento del lenguaje natural, y como tal, usará las herramientas principales de PLN. Esto es tokenización, lemanización y vectorización. 
 
-% \lipsum[2]
-% }
+El procesamiento del lenguaje natural investiga el uso de computadores para procesar o enteneder leng
+
+\subsection{Herramientas de NLP}
+ESCRIBIR LAS HERRAMIENTAS
+
+}
 
 \section{Descripción de los Datos}
 {
@@ -61,26 +65,47 @@ Mientras que el \textit{dataset} de las noticias falsas, posee seis etiquetas:
 \end{itemize}
 
 El \textit{dataset} originalmente no posee valores nulos. Sin embargo, el \textit{dataset} de las noticias falsas posee 10 datos etiquetados como fecha, a pesar de que no lo sean.
-}
 
-\section{Tratamiento de los Datos}
-{
+
+\subsection{Tratamiento de los Datos}
+
 Se crea una nueva columna en ambos \textit{datasets}, llamado \textit{true}, el cual determina si la noticia es verdadera o falsa. Creada la columna, se concatenan ambos \textit{datasets}. Además, se marcan los datos que no sean fechas de la columna \textit{date} por el tipo de dato llamado \textit{Not a Time}, y se eliminan los datos nulos que posea el \textit{dataset}.
-}
 
-\section{Análisis Exploratorio de los Datos}
-{
+Luego, se procederá a procesar la información de texto (esto es, para las columnas \textit{title} y \textit{text}) a través de NLP. Se escogerá una muestra de 2500 filas\footnote{Si se escogen más filas, la memoria para guardar la información del computador queda sobrecargada} de los datasets originales (para las noticias verdaderas y falsas) y se empieza por dejar el texto en minúsculas, luego se tokenizan, y por cada token, si es que no es una stopword, se lematiza, para finalmente unir todos los tokens lematizados en un único texto nuevamente, y esta información se reemplaza en dónde estaba la información no procesada.
+
+Finalmente, se empieza a codificar la información a través de un vector de características. 
+
+\subsection{Análisis Exploratorio de los Datos}
+
 \lipsum[1]
 }
 
 \section{Metodología}
 {
-\lipsum[1]
+\subsection{Modelos}
+Se escogerán tres modelos: \textit{Naïve Bayes} (NB), por su simpleza, \textit{Regresión Logística} (RL), y el \textit{Perceptrón}, ambos modelos por su capacidad de predecir sin utilizar técnicas geométricas.
+
+\subsubsection{Preparación del modelo de NB} 
+Se escogerá un prior uniforme para Naïve Bayes.
+
+\subsubsection{Preparación del modelo de RL}
+No se ajustarán hiperparámetros para este modelo.
+
+\subsubsection{Preparación del modelo de Perceptrón}
+No se ajustarán hiperparámetros para este modelo.
+
+\subsection{Preparación del Conjunto de Entrenamiento y Test}
+Luego de procesada toda la información del texto, se escoge una columna para realizar la predicción. En nuestro caso, se escogen las columnas \textit{title}, \textit{text} (ambas por separado) y una concatenación de \textit{title} $+$ \textit{text}. 
+
+Fijada una columna, se procede a dividir de forma aleatoria un $70\%$ de los datos para el entrenamiento, y un $30\%$ de los datos para el test.
+
 }
 
 \section{Resultados}
 {
-\lipsum[1]
+
+
+
 }
 
 \section{Discusión y Conclusiones}
