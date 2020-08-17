@@ -4,12 +4,12 @@
 % resolver o demostrar y una explicación general del trabajo realizado.
 
 % Contexto de las noticias actualmente
-Hoy en día, gracias al internet, los cibernautas están siendo continuamente bombardeados de información y de noticias.
+En la actualidad, los usuarios de internet, se encuentran constantemente bombardeados de información y noticias, de fuentes que parecen diversificarse igual de rápido que el internet mismo. 
 
 % Importancia para resolver esto
-Sin embargo, no siempre se puede con certeza cuando una noticia es verdadera o falsa, y más aún si la persona quién
-está leyendo la noticia no tiene los conocimientos necesarios, o no ha desarrollado un pensamiento crítico para discernir 
-cuando una noticia es verdadera o falsa.
+Es por ello, que no siempre se puede identificar con certeza cuando una noticia es verdadera o falsa. Lo cual cobra importancia, ya que las noticias son la forma principal en que las personas pueden entender el contexto en que están viviendo y formar sus opiniones. Además de que las noticias falsas propagan desinformación y s
+
+, y más aún si la persona quién está leyendo la noticia no tiene los conocimientos necesarios, o no ha desarrollado un pensamiento crítico para discernir cuando una noticia es verdadera o falsa.
 
 % Objetivo
 Es por esto que el objetivo de este trabajo es el de desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base a sus características.
@@ -28,12 +28,16 @@ herramientas de Aprendizaje de Máquinas. Es decir, \textbf{clasificaremos} una 
 
 \section{Marco Teórico}
 {
-Este es un proyecto íntimamente ligado al procesamiento del lenguaje natural, y como tal, usará las herramientas principales de PLN. Esto es tokenización, lemanización y vectorización. 
-
-El procesamiento del lenguaje natural investiga el uso de computadores para procesar o entender el lenguaje humano (natural) con el objetivo de realizar tarear útiles.  
-
 \subsection{Herramientas de NLP}
-ESCRIBIR LAS HERRAMIENTAS
+El procesamiento del lenguaje natural investiga el uso de computadores para procesar o entender el lenguaje humano (natural) con el objetivo de realizar tareas útiles. Dentro de las aplicaciones más comunes están: reconocimiento de voz, interpretación del lenguaje hablado (SLU por sus siglas en inglés), sistemas de diálogos, análisis léxico, análisis gramatical, análisis sintáctico, análisis morfológico, traducciones, recuperación de texto, análisis de sentimientos, etc. 
+
+Uno de los imperativos en el procesamiento de textos, es la vectorización. Ya que permite a la máquina entender el contenido simbólico a través de representaciones numéricas significativas. En el caso de la técnica usada, construye una matriz para registrar la frecuencia de cada componente léxico observado. 
+
+Sin embargo, el trabajo requerido para convertir el texto natural en componentes léxicos que puedan aportar significado  la matriz no es trivial. Se ocupan técnicas de análisis léxico, análisis sintáctico y lematización. 
+
+El análisis léxico del texto, corresponde a dividir oraciones o párrafos en componentes léxicos o símbolos. Para así poder visualizar individualmente las palabras o símbolos que componen una secuencia de texto. Luego, la lematización es el proceso mediante el cual las palabras de un texto que pertenecen a un mismo paradigma flexivo o derivativo son llevadas a una forma normal que representa a toda la clase. Esta forma normal, llamada lema, es típicamente la palabra utilizada como entrada en los diccionarios de lengua. En la lematización usada, se necesita distinguir si la palabra es un verbo, sustantivo, adjetivo o adverbio, para llevar a su raíz más exacta. Dicho proceso es el análisis sintáctico. 
+
+Así, cada componente léxico corresponde a un lema. Lo cual permite agrupar de mejor manera las palabras por significado y otorga mayor importancia a cada representación en la vectorización. 
 
 }
 
@@ -77,7 +81,70 @@ Finalmente, se empieza a codificar la información a través de un vector de car
 
 \subsection{Análisis Exploratorio de los Datos}
 
-\lipsum[1]
+Una de las primeras preguntas que se puede realizar sobre
+\begin{figure}
+\centering
+\begin{subfigure}{.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/wordcloud_titulares_falsas.pdf}
+    \caption{Titulares de noticias falsas}
+    \label{fig:tit-fake}
+\end{subfigure}%
+\newline
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/wordclouds_cuerpo_falsas.pdf}
+    \caption{Cuerpo de noticias falsas}
+    \label{fig:text-fake}
+\end{subfigure}
+\caption{Nube de palabras para las noticias falsas.}
+\label{fig:fake}
+\end{figure}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.47\textwidth]{imagenes/wordcloud_titulares_falsas.pdf}
+%     \caption{Titulares de noticias falsas}
+%     \label{fig:tit-fake}
+% \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.47\textwidth]{imagenes/wordclouds_cuerpo_falsas.pdf}
+%     \caption{Cuerpo de noticias falsas}
+%     \label{fig:text-fake}
+% \end{figure}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.47\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/wordcloud_titulares_verdaderas.pdf}
+    \caption{Titulares de noticias verdaderas}
+    \label{fig:tit-true}
+\end{subfigure}%
+\newline
+\begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagenes/wordclouds_cuerpo_verdaderas.pdf}
+    \caption{Cuerpo de noticias verdaderas}
+    \label{fig:text-true}
+\end{subfigure}
+\caption{Nube de palabras para las noticias verdaderas.}
+\label{fig:fake}
+\end{figure}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.47\textwidth]{imagenes/wordcloud_titulares_verdaderas.pdf}
+%     \caption{Titulares de noticias verdaderas}
+%     \label{fig:tit-true}
+% \end{figure}
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.47\textwidth]{imagenes/wordclouds_cuerpo_verdaderas.pdf}
+%     \caption{Cuerpo de noticias verdaderas}
+%     \label{fig:text-true}
+% \end{figure}
 }
 
 \section{Metodología}
@@ -103,51 +170,57 @@ Fijada una columna, se procede a dividir de forma aleatoria un $70\%$ de los dat
 
 \section{Resultados}
 {
-
+En la Tabla \ref{tab:resumen} se puede observar el porcentaje de precisión que resultó después de utilizar los tres modelos en cada una de las columnas.
 \input{latex/tablas/tabla_resumen}
 
 }
 
 \section{Discusión y Conclusiones}
 {
-\lipsum[1]
+
+Observamos a partir de la Tabla \ref{tab:resumen} que, ocupando el modelo de \textit{Regresión Logística} sobre la columna de \textit{text} (procesada) es la que resulta con la mayor precisión entre todas combinaciones. 
+
+Sin embargo, es destacable que ocupando únicamente el titular de la noticia, todos los modelos tengan aproximadamente un $90\%$ de precisión a la hora de predecir la veracidad de la misma. Lo cuál significa que, basta con recibir el titular de una noticia para determinar con bastante precisión si ésta es verdadera o falsa.
+
+Además, es destacable que utilizando el titular de la noticia, junto con el texto de la misma, termina empeorando la calidad de la predicción en los tres modelos. Esto resulta contra intuitivo, pues se espera que añadiendo ``más información'' que puede resultar útil, realmente termine perjudicando la calidad de predicción.
+
+\subsection{Futuras Mejoras}
+
+Observamos que la división entre el conjunto de entrenamiento y de test no es la mejor forma de particionar los datos. Más que nada por el siguiente hecho: los datos son dependientes del tiempo. 
+
+Esta dependencia temporal es lo que obliga a considerar el escenario de, ``estoy ocupando los datos del pasado para predecir el futuro'', con lo que una forma óptima de particionar los datos es la siguiente: ordenar los datos por fecha, y luego, dividir los primeros $x\%$ de los datos para el conjunto de entrenamiento, y los restantes $(100-x)\%$ como conjunto de test.
 }
 
-\section{Futuras Mejoras}
-{
-\lipsum[1]
-}
+% \section{Desarrollo}
+% {
+% % El procedimiento y los experimentos realizados, descripción de los datos, la metodología usada, las
+% % configuraciones (parámetros) de los algoritmos usados, etc. Explicar las decisiones que tomaron y el porqué. Si
+% % usaron un algoritmo para resolver el problema, explicar su elección y por qué no otro. No es necesario que sea
+% % una explicación rigurosa, puede ser por la naturaleza del problema, de forma intuitiva o por aspectos prácticos
+% \subsection{Descripción de los datos}
+% {
+% Los datos se obtuvieron de la Base de Datos \href{https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset}{Fake and 
+% real news dataset}, de kaggle. 
 
-\section{Desarrollo}
-{
-% El procedimiento y los experimentos realizados, descripción de los datos, la metodología usada, las
-% configuraciones (parámetros) de los algoritmos usados, etc. Explicar las decisiones que tomaron y el porqué. Si
-% usaron un algoritmo para resolver el problema, explicar su elección y por qué no otro. No es necesario que sea
-% una explicación rigurosa, puede ser por la naturaleza del problema, de forma intuitiva o por aspectos prácticos
-\subsection{Descripción de los datos}
-{
-Los datos se obtuvieron de la Base de Datos \href{https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset}{Fake and 
-real news dataset}, de kaggle. 
+% Este consiste en dos datasets: el de noticias falsas (17903 datos) y el de noticias verdaderas (20826 datos). Ambos datasets 
+% comparten las mismas columnas: \textit{title}, \textit{text}, \textit{subject} y \textit{date}. Estas corresponden al titular de
+% la noticia, al contenido de la noticia, al tipo de noticia que es y la fecha de la noticia, respectivamente.
 
-Este consiste en dos datasets: el de noticias falsas (17903 datos) y el de noticias verdaderas (20826 datos). Ambos datasets 
-comparten las mismas columnas: \textit{title}, \textit{text}, \textit{subject} y \textit{date}. Estas corresponden al titular de
-la noticia, al contenido de la noticia, al tipo de noticia que es y la fecha de la noticia, respectivamente.
+% Las columnas \textit{title} y \textit{text} son de tipo cadena; \textit{subject} es un tipo de dato categórico y \textit{date}
+% es un tipo de dato temporal. 
+% }
+% }
 
-Las columnas \textit{title} y \textit{text} son de tipo cadena; \textit{subject} es un tipo de dato categórico y \textit{date}
-es un tipo de dato temporal. 
-}
-}
+% \section{Resultados y Análisis}
+% {
+% % Mostrar, explicar y discutir los resultados obtenidos. El análisis incluye una interpretación superficial (funcionó/no funcionó), y también un análisis de si era o no lo esperado, por qué, y qué
+% % se podría mejorar
+% \lipsum[3]
+% }
 
-\section{Resultados y Análisis}
-{
-% Mostrar, explicar y discutir los resultados obtenidos. El análisis incluye una interpretación superficial (funcionó/no funcionó), y también un análisis de si era o no lo esperado, por qué, y qué
-% se podría mejorar
-\lipsum[3]
-}
-
-\section{Conclusión}
-{
-% Las conclusiones que se obtienen del proyecto (No ponga conclusiones del estilo ”aprendí mucho”).
-% Incluya las dificultades que se encontraron y propuestas de trabajo a futuro.
-\lipsum[4]
-}
+% \section{Conclusión}
+% {
+% % Las conclusiones que se obtienen del proyecto (No ponga conclusiones del estilo ”aprendí mucho”).
+% % Incluya las dificultades que se encontraron y propuestas de trabajo a futuro.
+% \lipsum[4]
+% }
