@@ -6,7 +6,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage{subfig}
+% \usepackage{subfig}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{lipsum}
@@ -28,17 +28,17 @@
 
 \author{
 \IEEEauthorblockN{Fernando Fetis}
-\IEEEauthorblockA{\textit{Departamento de Ingeniería Matemática} \\
+\IEEEauthorblockA{\textit{Dpto. de Ingeniería Matemática} \\
 \textit{Universidad de Chile, FCFM}
 }
 \and
 \IEEEauthorblockN{Valentina Gómez}
-\IEEEauthorblockA{\textit{Departamento de Ingeniería Matemática} \\
+\IEEEauthorblockA{\textit{Dpto. de Ingeniería Matemática} \\
 \textit{Universidad de Chile, FCFM}
 }
 \and
 \IEEEauthorblockN{Francisco Muñoz}
-\IEEEauthorblockA{\textit{Departamento de Ingeniería Matemática} \\
+\IEEEauthorblockA{\textit{Dpto. de Ingeniería Matemática} \\
 \textit{Universidad de Chile, FCFM}
 }
 }
@@ -48,12 +48,16 @@
 \maketitle
 
 \begin{abstract}
-\lipsum[1]
+En este trabajo se estudiarán formas de clasificar una noticia como verdadera o falsa, en base al titular y contenido de la noticia. 
+
+La forma en que se realizará la clasificación será utilizando herramientas de Aprendizaje de Máquinas, como lo es el Procesamiento de Lenguaje Natural, y algoritmos de clasificación, como lo es Naïve Bayes, Regresión Logística y el Perceptrón.
+
+Se concluirá que, a partir del solo contenido de una noticia, es posible clasificarla como verdadera o falsa, con un $99.19\%$ de precisión. Además, se concluirá que basta únicamente el titular de la noticia para determinar si una noticia es verdadera o falsa.
 \end{abstract}
 
-% \begin{IEEEkeywords}
-% component, formatting, style, styling, insert
-% \end{IEEEkeywords}
+\begin{IEEEkeywords}
+Clasificación, Procesamiento de Lenguaje Natural, Noticias Falsas
+\end{IEEEkeywords}
 
 \input{contenido2}
 
@@ -71,6 +75,13 @@
 \bibitem{FN1} Ahmed H, Traore I, Saad S. ``Detecting opinion spams and fake news using text classification'', Journal of Security and Privacy, Volume 1, Issue 1, Wiley, January/February 2018.
 
 \bibitem{FN2} Ahmed H, Traore I, Saad S. (2017) ``Detection of Online Fake News Using N-Gram Analysis and Machine Learning Techniques''. In: Traore I., Woungang I., Awad A. (eds) Intelligent, Secure, and Dependable Systems in Distributed and Cloud Environments. ISDDC 2017. Lecture Notes in Computer Science, vol 10618. Springer, Cham (pp. 127-138).
+
+\bibitem{FN3} Bassi., A. (2000). Lematización basada en análisis no supervisado de corpus (1). Departamento de Ciencias de la Computación Universidad de Chile. Recuperado de https://users.dcc.uchile.cl/~abassi/ecos/lema.html
+
+\bibitem{FN4} Deng, L., \& Liu, Y. (2018). Deep Learning in Natural Language Processing. New York, Estados Unidos: Springer Publishing.
+
+\bibitem{FN5} Singh, A. K., \& Shashi, M. (2019). Vectorization of Text Documents for Identifying Unifiable News Articles. International Journal of Advanced Computer Science and Applications, 10(7), 305-310. https://doi.org/10.14569/ijacsa.2019.0100742
+
 
 % \bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
 % \bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
