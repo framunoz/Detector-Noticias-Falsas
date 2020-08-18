@@ -4,15 +4,15 @@
 % resolver o demostrar y una explicación general del trabajo realizado.
 
 % Contexto de las noticias actualmente
-En la actualidad, los usuarios de internet, se encuentran constantemente bombardeados de información y noticias, de fuentes que parecen diversificarse día a día. 
+En la actualidad, los usuarios del internet se encuentran constantemente bombardeados de información y noticias, proveniente de fuentes que parecen diversificarse día a día. 
 
 % Importancia para resolver esto
 Es por ello, que no siempre se puede identificar con certeza cuando una noticia es verdadera o falsa. Lo cual cobra importancia, ya que las noticias son la forma principal en que las personas pueden entender el contexto en que están viviendo y formar sus opiniones. Además de que las noticias falsas son una forma maliciosa de propagar desinformación para manejar la opinión pública en beneficio de sus creadores. 
 
 % Objetivo
-Es por esto que el objetivo de este trabajo es desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base al título y cuerpo de la noticia.
+Es por esto que el objetivo de este trabajo será desarrollar una herramienta que permita \textbf{clasificar} una noticia como verdadera o falsa, en base al título y cuerpo de la noticia.
 
-Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máquinas, como lo es Procesamiento de Lenguaje Natural y Clasificación Binaria. Es específico se usará vectorización, análisis léxico y lematización sintáctica para procesar el texto, y luego modelos de Naïve Bayes, Regresión Logística y Perceptrón para la clasificación. 
+Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máquinas, como lo es Procesamiento de Lenguaje Natural y Clasificación Binaria. Es específico se usará vectorización, análisis léxico y lematización sintáctica para procesar el texto, y luego modelos como Naïve Bayes, Regresión Logística y Perceptrón para la clasificación. 
 
 % Origen de los datos
 % Para esto, se obtendrán diversas noticias de US a través de 
@@ -25,11 +25,15 @@ Para esto, se utilizarán diversas herramientas clásicas de Aprendizaje de Máq
 \subsection{Herramientas de NLP}
 El procesamiento del lenguaje natural investiga el uso de computadores para procesar o entender el lenguaje humano (natural) con el objetivo de realizar tareas útiles. Dentro de las aplicaciones más comunes están: reconocimiento de voz, interpretación del lenguaje hablado (SLU por sus siglas en inglés), sistemas de diálogos, análisis léxico, análisis gramatical, análisis sintáctico, análisis morfológico, traducciones, recuperación de texto, análisis de sentimientos, etc. 
 
-Uno de los imperativos en el procesamiento de textos, es la vectorización. Ya que permite a la máquina entender el contenido simbólico a través de representaciones numéricas significativas. En el caso de la técnica usada, construye una matriz para registrar la frecuencia de cada componente léxico observado. 
+Uno de las herramientas más importantes en el procesamiento de textos, es la vectorización. Ya que permite a la máquina entender el contenido simbólico a través de representaciones numéricas significativas. En el caso de la técnica usada, construye una matriz para registrar la frecuencia de cada componente léxico observado. 
 
 Sin embargo, el trabajo requerido para convertir el texto natural en componentes léxicos que puedan aportar significado  la matriz no es trivial. Se ocupan técnicas de análisis léxico, análisis sintáctico y lematización. 
 
-El análisis léxico del texto, corresponde a dividir oraciones o párrafos en componentes léxicos o símbolos. Para así poder visualizar individualmente las palabras o símbolos que componen una secuencia de texto. Luego, la lematización es el proceso mediante el cual las palabras de un texto que pertenecen a un mismo paradigma flexivo o derivativo son llevadas a una forma normal que representa a toda la clase. Esta forma normal, llamada lema, es típicamente la palabra utilizada como entrada en los diccionarios de lengua. En la lematización usada, se necesita distinguir si la palabra es un verbo, sustantivo, adjetivo o adverbio, para llevar a su raíz más exacta. Dicho proceso es el análisis sintáctico. 
+\begin{itemize}
+    \item El \textbf{análisis léxico} del texto, corresponde a dividir oraciones o párrafos en componentes léxicos o símbolos, para así poder visualizar individualmente las palabras o símbolos que componen una secuencia de texto. 
+    \item Luego, la \textbf{lematización} es el proceso mediante el cual las palabras de un texto que pertenecen a un mismo paradigma flexivo o derivativo son llevadas a una forma normal que representa a toda la clase. Esta forma normal, llamada lema, es típicamente la palabra utilizada como entrada en los diccionarios de lengua. 
+    \item En la lematización usada, se necesita distinguir si la palabra es un verbo, sustantivo, adjetivo o adverbio, para llevar a su raíz más exacta. Dicho proceso es el \textbf{análisis sintáctico}. 
+\end{itemize}
 
 Así, cada componente léxico corresponde a un lema. Lo cual permite agrupar de mejor manera las palabras por significado y otorga mayor importancia a cada representación en la vectorización. 
 
@@ -67,15 +71,20 @@ El \textit{dataset} originalmente no posee valores nulos. Sin embargo, el \texti
 
 \subsection{Tratamiento de los Datos}
 
-Se crea una nueva columna en ambos \textit{datasets}, llamado \textit{true}, el cual determina si la noticia es verdadera o falsa. Creada la columna, se concatenan ambos \textit{datasets}. Además, se marcan los datos que no sean fechas de la columna \textit{date} por el tipo de dato llamado \textit{Not a Time}, y se eliminan los datos nulos que posea el \textit{dataset}.
+\subsubsection{Limpieza del dataset}
+Se crea una nueva columna en ambos \textit{datasets}, llamada \textit{true}, el cual determina si la noticia es verdadera o falsa. Se le asigna a todas las noticias verdaderos, el valor de true igual a $1$, y $0$ a las noticias falsas. Paso siguiente, se concatenan ambos \textit{datasets}. Además, se marcan los datos que no sean fechas de la columna \textit{date} por el tipo de dato llamado \textit{Not a Time}, y se eliminan los datos nulos que posea el \textit{dataset}.
 
-Luego, se procederá a procesar la información de texto (esto es, para las columnas \textit{title} y \textit{text}) a través de NLP. Se escogerá una muestra de 2500 filas\footnote{Si se escogen más filas, la memoria para guardar la información del computador queda sobrecargada} de los datasets originales (para las noticias verdaderas y falsas) y se empieza por dejar el texto en minúsculas, luego se tokenizan, y por cada token, si es que no es una stopword, se lematiza, para finalmente unir todos los tokens lematizados en un único texto nuevamente, y esta información se reemplaza en dónde estaba la información no procesada.
+\subsubsection{Procesamiento de los datos}
+Luego, se procede a procesar la información de tipo texto (esto es, para las columnas \textit{title} y \textit{text}) a través de NLP. Se escoge una muestra aleatoria de 2500 filas\footnote{Si se escogen más filas, la memoria para guardar la información del computador queda sobrecargada} de los datasets originales (para las noticias verdaderas y falsas) y se empieza transformando el texto de las cadenas en minúsculas. 
+
+Luego se realiza un análisis léxico (a.k.a. \textit{tokenization}), y por cada componente léxica (a.k.a. \textit{token}), si es que no corresponde a una \textit{stopword}, se lematiza la componente léxica. Realizada la lematización de cada componente léxica, se procede a unir nuevamente todas las componentes en un único texto de tipo cadena.
+
+Paso seguido, este nuevo texto generado se reemplaza en una copia del \textit{dataset}, en el lugar dónde estaba la información no procesada originalmente.
 
 Finalmente, se empieza a codificar la información a través de un vector de características. 
 
 \subsection{Análisis Exploratorio de los Datos}
 
-Una de las primeras preguntas que se puede realizar sobre
 \begin{figure}
 \centering
 \begin{subfigure}{\escala\textwidth}
@@ -94,6 +103,7 @@ Una de las primeras preguntas que se puede realizar sobre
 \caption{Nube de palabras para las noticias falsas.}
 \label{fig:fake}
 \end{figure}
+En las figuras \ref{fig:tit-fake} y \ref{fig:text-fake} de observan nubes de palabras realizadas a partir de los titulares y el cuerpo de las noticias falsas. A partir de ellas, se concluye que las temáticas principales de las noticias falsas son: videos, Trump, Obama, Hillary, ataque, racista, presidente, mujer, republicanos, demócratas, musulmán, blanco, negro, terrorista, mentira, etc. Que corresponden a figuras políticas y temas sensibles de discriminación. 
 
 \begin{figure}
 \centering
@@ -111,14 +121,16 @@ Una de las primeras preguntas que se puede realizar sobre
     \label{fig:text-true}
 \end{subfigure}
 \caption{Nube de palabras para las noticias verdaderas.}
-\label{fig:fake}
+\label{fig:true}
 \end{figure}
+Mientras que en \ref{fig:tit-true} y \ref{fig:text-true} las palabras mayoritarias son: Trump, Casa blanca, Rusia, China, Obama, gobierno, EEUU., Corea del Norte, Turquía, elección, muerte, voto, Clinton, lider, etc. Es decir, son noticias orientadas a las relaciones internacionales, y no abordan temas tan polémicos como las noticias falsas. 
+
 
 \begin{figure}
     \centering
-    \includegraphics{}
-    \caption{Caption}
-    \label{fig:my_label}
+    \includegraphics[width=0.47\textwidth]{imagenes/noticias_fecha_publicacion.pdf}
+    \caption{Frecuencia de noticias por fecha de publicación}
+    \label{fig:not-fecha-pub}
 \end{figure}
 
 }
@@ -126,7 +138,7 @@ Una de las primeras preguntas que se puede realizar sobre
 \section{Metodología}
 {
 \subsection{Modelos}
-Se escogerán tres modelos: \textit{Naïve Bayes} (NB), por su simpleza, \textit{Regresión Logística} (RL), y el \textit{Perceptrón}, ambos modelos por su capacidad de predecir sin utilizar técnicas geométricas.
+Se escogerán cuatro modelos modelos:  \textit{Naïve Bayes} (NB), por su simpleza, \textit{Regresión Logística} (RL), el \textit{Perceptrón}, ambos modelos por su capacidad de predecir sin utilizar técnicas geométricas, y \textit{Support Vector Classifier} (SVC)
 
 \subsubsection{Preparación del modelo de NB} 
 Se escogerá un prior uniforme para Naïve Bayes.
